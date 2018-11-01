@@ -52,3 +52,7 @@ int  Queue::GetHead()
 	if (Q.front != Q.rear)
 		return Q.front->next->e;
 }
+
+int  Queue::QueueLength() {
+
+}
