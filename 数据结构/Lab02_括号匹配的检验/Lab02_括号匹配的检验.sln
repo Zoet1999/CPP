@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28010.2026
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab02_括号匹配的检验", "Lab02_括号匹配的检验\Lab02_括号匹配的检验.vcxproj", "{4BAC7392-CC6B-489C-8E12-88393C6CEBD1}"
 EndProject
@@ -26,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D8B767D6-75FF-4EBB-A687-985B54991D82}
+		SolutionGuid = {606C47C1-5537-44B5-9C82-A6AD7023BAA0}
 	EndGlobalSection
 EndGlobal
