@@ -1,0 +1,7 @@
+﻿  OSLAB04.cpp
+e:\code\cpp\test\oslab04\oslab04\oslab04.cpp(72): warning C4018: “<”: 有符号/无符号不匹配
+e:\code\cpp\test\oslab04\oslab04\oslab04.cpp(83): warning C4018: “<”: 有符号/无符号不匹配
+e:\code\cpp\test\oslab04\oslab04\oslab04.cpp(322): warning C4018: “<”: 有符号/无符号不匹配
+e:\code\cpp\test\oslab04\oslab04\oslab04.cpp(349): warning C4018: “<”: 有符号/无符号不匹配
+e:\code\cpp\test\oslab04\oslab04\oslab04.cpp(371): warning C4018: “<”: 有符号/无符号不匹配
+  OSLAB04.vcxproj -> E:\code\CPP\test\OSLAB04\Debug\OSLAB04.exe

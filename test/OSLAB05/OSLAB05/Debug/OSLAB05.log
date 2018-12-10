@@ -1,0 +1,3 @@
+﻿  OSLAB05.cpp
+e:\code\cpp\test\oslab05\oslab05\oslab05.cpp(23): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  OSLAB05.vcxproj -> E:\code\CPP\test\OSLAB05\Debug\OSLAB05.exe
