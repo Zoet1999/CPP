@@ -1,5 +1,5 @@
 ﻿  OSLAB05.cpp
-e:\code\cpp\test\oslab05\oslab05\oslab05.cpp(227): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-e:\code\cpp\test\oslab05\oslab05\oslab05.cpp(234): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+e:\code\cpp\test\oslab05\oslab05\oslab05.cpp(226): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+e:\code\cpp\test\oslab05\oslab05\oslab05.cpp(233): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
 e:\code\cpp\test\oslab05\oslab05\oslab05.cpp(122): warning C4715: “find”: 不是所有的控件路径都返回值
   OSLAB05.vcxproj -> E:\code\CPP\test\OSLAB05\Debug\OSLAB05.exe

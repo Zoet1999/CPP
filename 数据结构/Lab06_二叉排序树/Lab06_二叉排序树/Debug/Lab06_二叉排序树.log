@@ -1,0 +1,4 @@
+﻿  Lab06_二叉排序树.cpp
+e:\code\cpp\数据结构\lab06_二叉排序树\lab06_二叉排序树\lab06_二叉排序树.cpp(89): warning C4715: “SearchBST”: 不是所有的控件路径都返回值
+e:\code\cpp\数据结构\lab06_二叉排序树\lab06_二叉排序树\lab06_二叉排序树.cpp(149): warning C4715: “InsertBST”: 不是所有的控件路径都返回值
+  Lab06_二叉排序树.vcxproj -> E:\code\CPP\数据结构\Lab06_二叉排序树\Debug\Lab06_二叉排序树.exe
