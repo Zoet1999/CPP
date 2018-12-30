@@ -19,6 +19,7 @@ int searchTemp;
 int HashFunctions=1;//表示构造方法类型
 int CollisionResolution=1;//表示冲突处理方法类型
 double averages[6][5];//保存平均查找长度
+double collisions[6][5];//保存地址冲突率
 void Insert(TableNode hash[], std::string name);
 int getKey(std::string name);
 void getAverageHash(TableNode hash[]);
@@ -56,7 +57,19 @@ int main()
 		}
 		std::cout << std::endl;
 	}
-	
+
+	std::cout << std::endl;
+	std::cout << std::setw(15) << "地址冲突率";
+	for (int j = 0; j < 5; j++) {
+		std::cout << std::setw(12) << CollisionResolutionNames[j].c_str();
+	}std::cout << std::endl;
+	for (int i = 0; i < 6; i++) {
+		std::cout << std::setw(15) << HashFunctionsNames[i].c_str();
+		for (int j = 0; j < 5; j++) {
+			std::cout << std::setw(12) << collisions[i][j];
+		}
+		std::cout << std::endl;
+	}
 	return 0;
 }
 void clearTable(TableNode hash[]) {
@@ -192,14 +205,19 @@ void getAverageHash(TableNode hash[]) {
 	//计算平均查找长度
 	int searchLength;
 	int average = 0;
+	int collision = 0;
 	std::cout.flags(std::ios::left);
 	//std::cout << std::setw(4) << "序号" << ":" << std::setw(15) << "关键词" << std::setw(15) << "姓名" << "   " << "查找长度" << std::endl;
 	for (int i = 0; i < 30; i++) {//遍历名字
 			searchLength = searchHash(hash, names[i]);//用查找函数得到查找长度
+			if (searchLength > 1) {
+				collision++;
+			}
 			average += searchLength;//累加查找长度
 	}
 	//std::cout << "average:" << double(average) / 30.0<<std::endl;
 	averages[HashFunctions-1][CollisionResolution-1] = double(average) / 30.0;//把平均查找长度
+	collisions[HashFunctions - 1][CollisionResolution - 1] = double(collision) / 30.0;
 }
 
 
@@ -207,6 +225,7 @@ int searchHash(TableNode hash[], std::string name) {
 	//查找目标name
 	int key = getKey(name);//按照构造方法获得的地址
 	int length = 2;
+
 	if ((hash[key % TableLength].name.compare(name)) == 0) {//如果直接找到要找的name
 		return 1;//直接返回查找次数1
 	}

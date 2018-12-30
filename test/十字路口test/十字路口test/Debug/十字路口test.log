@@ -1,6 +1,6 @@
 ﻿  十字路口test.cpp
-e:\code\cpp\test\十字路口test\十字路口test\十字路口test.cpp(223): warning C4715: “car_from_south”: 不是所有的控件路径都返回值
-e:\code\cpp\test\十字路口test\十字路口test\十字路口test.cpp(392): warning C4715: “car_from_north”: 不是所有的控件路径都返回值
-e:\code\cpp\test\十字路口test\十字路口test\十字路口test.cpp(307): warning C4715: “car_from_east”: 不是所有的控件路径都返回值
-e:\code\cpp\test\十字路口test\十字路口test\十字路口test.cpp(477): warning C4715: “car_from_west”: 不是所有的控件路径都返回值
+e:\code\cpp\test\十字路口test\十字路口test\十字路口test.cpp(222): warning C4715: “car_from_south”: 不是所有的控件路径都返回值
+e:\code\cpp\test\十字路口test\十字路口test\十字路口test.cpp(306): warning C4715: “car_from_east”: 不是所有的控件路径都返回值
+e:\code\cpp\test\十字路口test\十字路口test\十字路口test.cpp(391): warning C4715: “car_from_north”: 不是所有的控件路径都返回值
+e:\code\cpp\test\十字路口test\十字路口test\十字路口test.cpp(476): warning C4715: “car_from_west”: 不是所有的控件路径都返回值
   十字路口test.vcxproj -> E:\code\CPP\test\十字路口test\Debug\十字路口test.exe

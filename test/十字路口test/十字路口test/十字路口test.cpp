@@ -10,11 +10,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include<Windows.h>
-
+#include<time.h>
 using namespace std;
 #pragma comment(lib, "pthreadVC2.lib")
 
-#define MAX 100
+#define MAX 1000
 
 //mutex of the 4 cross//4个互斥变量 
 pthread_mutex_t mutex_a;
@@ -129,8 +129,7 @@ void wakeupall()
 	}
 }
 void *car_from_south(void *arg) {
-	//bool deadlock_flag = false;
-	//add a wait lock
+	
 	pthread_mutex_lock(&wait_south);
 	pthread_cond_wait(&firstSouth, &wait_south);
 	pthread_mutex_unlock(&wait_south);
@@ -478,7 +477,7 @@ void *car_from_west(void *arg) {
 
 void *check_dead_lock(void *arg) {
 	//wait....
-	Sleep(4000);
+	Sleep(6000);
 	//at first wake up all the car;
 	wakeupall();
 
@@ -502,12 +501,61 @@ void *check_dead_lock(void *arg) {
 	}
 }
 
+void *come_new_car(void *arg) {
+	srand((int)time(0));
+	Empty = 4;
+	//create the thread
+	int i = 0;
+	while(true) {
+		i++;
+		
+		switch (rand() % 4) {
+		case 0: {
+			is_west = true;
+			car_west.push(i);
+			car[(Size++)%MAX] = car_west.thread[car_west.front];
+			pthread_create(&car_west.thread[car_west.front],
+				NULL, car_from_west, NULL);
+			break;
+		}
+		case 1: {
+			is_east = true;
+			car_east.push(i);
+			car[(Size++) % MAX] = car_east.thread[car_east.front];
+			pthread_create(&car_east.thread[car_east.rear],
+				NULL, car_from_east, NULL);
+			break;
+		}
+		case 2: {
+			is_south = true;
+			car_south.push(i);
+			car[(Size++) % MAX] = car_south.thread[car_south.rear];
+			pthread_create(&car_south.thread[car_south.rear],
+				NULL, car_from_south, NULL);
+			break;
+		}
+		case 3: {
+			is_north = true;
+			car_north.push(i);
+			car[(Size++) % MAX] = car_north.thread[car_north.rear];
+			pthread_create(&car_north.thread[car_north.rear],
+				NULL, car_from_north, NULL);
+			break;
+		}
+		}
+		Sleep(700);
+	}
+
+
+
+}
+
 int main(int argc, char** argv) {
 
-	int num[100];
+	
 
 	pthread_t check;//a thread for deadlock checking
-
+	pthread_t a;
 	//initialize(it seems that it doesn't matter whether I intialize)
 	pthread_cond_init(&cond_lock, NULL);
 	pthread_cond_init(&cond_deadlock, NULL);
@@ -536,57 +584,10 @@ int main(int argc, char** argv) {
 	//char s[100];
 	//scanf_s("%s", s);
 	//printf("%s",s);
-	char s[] = "wewesnnsewnsewn";
-	printf("%s", s);
-	int len = strlen(s);
-	printf("%d", len);
-	Empty = 4;
-	//create the thread
-	for (int i = 0; i < len; i++)num[i] = i + 1;
-	for (int i = 0; i < len; i++) {
-		switch (s[i]) {
-		case 'w': {
-			is_west = true;
-			car_west.push(num[i]);
-			car[Size++] = car_west.thread[car_west.front];
-			pthread_create(&car_west.thread[car_west.front],
-				NULL, car_from_west, NULL);
-			break;
-		}
-		case 'e': {
-			is_east = true;
-			car_east.push(num[i]);
-			car[Size++] = car_east.thread[car_east.front];
-			pthread_create(&car_east.thread[car_east.rear],
-				NULL, car_from_east, NULL);
-			break;
-		}
-		case 's': {
-			is_south = true;
-			car_south.push(num[i]);
-			car[Size++] = car_south.thread[car_south.rear];
-			pthread_create(&car_south.thread[car_south.rear],
-				NULL, car_from_south, NULL);
-			break;
-		}
-		case 'n': {
-			is_north = true;
-			car_north.push(num[i]);
-			car[Size++] = car_north.thread[car_north.rear];
-			pthread_create(&car_north.thread[car_north.rear],
-				NULL, car_from_north, NULL);
-			break;
-		}
-		}
-	}
-
-
-
-
+	pthread_create(&a, NULL, come_new_car, NULL);
 	pthread_create(&check, NULL, check_dead_lock, NULL);
 	//join the thread
-	for (int i = 0; i < Size; i++) {
-		pthread_join(car[i], NULL);
-	}
+	pthread_join(a, NULL);
+	
 }
 
