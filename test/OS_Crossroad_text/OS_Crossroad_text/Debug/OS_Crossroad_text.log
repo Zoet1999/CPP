@@ -1,0 +1,4 @@
+﻿  OS_Crossroad_text.cpp
+e:\code\cpp\test\os_crossroad_text\os_crossroad_text\os_crossroad_text.cpp(133): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+e:\code\cpp\test\os_crossroad_text\os_crossroad_text\os_crossroad_text.cpp(189): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+  OS_Crossroad_text.vcxproj -> E:\code\CPP\test\OS_Crossroad_text\Debug\OS_Crossroad_text.exe
