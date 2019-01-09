@@ -191,7 +191,7 @@ int getKey(std::string name) {
 	case 5: key=key%39;	//除留余数法
 		break;
 	case 6: //	乘余取整法
-		key = 100 * (a*key-(int(a*key) / 1));
+		key = 100 * (a*key-(int(a*key)/ 1));
 		break;
 	default:
 		break;

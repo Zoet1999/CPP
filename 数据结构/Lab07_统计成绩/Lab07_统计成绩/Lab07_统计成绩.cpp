@@ -21,11 +21,11 @@ void procTable(SqList& L, int length,int m) {
 	//srand(rand());
 	//0号位闲置
 	L.length = length;
-	for (int i = 1; i <= length; i++) {
-		std::cout << "请输入学号为"<<i<<"的学生的"<<std::endl;
-		std::cout << "姓名";
+	for (int i = 1; i <= length; i++) {//循环获得学生信息
+		std::cout << "请输入第"<<i<<"个学生的"<<std::endl;
+		std::cout << "姓名：";
 		std::cin >> L.r[i].name;
-		std::cout << "学号";
+		std::cout << "学号：";
 		std::cin>>L.r[i].number;
 		//L.r[i].number = i;
 		L.r[i].m = m;
@@ -43,7 +43,7 @@ void printList(SqList L) {
 	L.r[0].key = -1;
 	printf("排名  学号 姓名     总分   各科成绩   \n");
 	for (i = 1; i <= L.length; i++) {
-		if (L.r[i].key == L.r[i - 1].key) {
+		if (L.r[i].key == L.r[i - 1].key) {//根据与上一个学生的总分比较，判断排名
 			same++;
 			rank = i - same;
 		}
@@ -87,7 +87,7 @@ int main()
 	std::cout << "请输入考试数量：";
 	int m;
 	std::cin >> m;
-	procTable(L, n, m);
-	printList(SelectionSort(L));
+	procTable(L, n, m);//初始化信息
+	printList(SelectionSort(L));//排序并输出
 	return 0;
 }

@@ -54,7 +54,7 @@ SqList InsertionSort(SqList L) {
 	}
 	return L;
 }
-//二分插入排序
+//折半插入排序
 SqList BinaryInsertionSort(SqList L) {
 	//折半插入排序
 	compareTimes == 0;
@@ -101,13 +101,13 @@ SqList TwoWayInsertionSort(SqList L) {
 		if (L.r[i].key < temp[first].key) { // 待插入元素比最小的元素小 
 			compareTimes++;
 			swapTimes++;
-			first = (first - 1 + L.length) % L.length;
+			first = (first - 1 + L.length) % L.length;//把它插在temp的前端
 			temp[first] = L.r[i];
 		}
 		else if (L.r[i].key > temp[last].key) { // 待插入元素比最大元素大 
 			compareTimes++;
 			swapTimes++;
-			last = (last + 1) % L.length;
+			last = (last + 1) % L.length;//把它插在temp的后端
 			temp[last] = L.r[i];
 		}
 		else { // 插入元素比最小大，比最大小 
@@ -170,7 +170,7 @@ SqList BubbleSort(SqList L) {
 	compareTimes = 0;
 	int j;
 	RedType t;
-	int m = L.length - 1,flag = 1;//falg用来标记某一趟排序是否发送交换
+	int m = L.length - 1,flag = 1;//flag用来标记某一趟排序是否发生交换
 	while ((m > 0) && flag == 1) {
 		flag = 0;				//flag置为0，如果本趟排序没有发生交换，则不会执行下一趟排序
 		for(j=1;j<=m;j++)
@@ -315,7 +315,7 @@ void Merge(RedType R[], RedType T[], int low, int mid, int high) {
 }
 void MSort(RedType R[], RedType T[], int low, int high) {
 	//R归并排序后放入T中
-	RedType S[MAXSIZE];
+	RedType* S=new RedType[MAXSIZE];
 	int mid;
 	if (low == high) {
 		T[low] = R[low];
@@ -327,6 +327,7 @@ void MSort(RedType R[], RedType T[], int low, int high) {
 		MSort(R, S, mid + 1, high);
 		Merge(S, T, low, mid, high);
 	}
+	delete S;
 }
 SqList MergeSort(SqList L) {
 	//归并排序
@@ -393,31 +394,31 @@ void method1() {
 	printList(L);
 	printf("\nInsertionSort:      ");
 	printList(InsertionSort(L));
-	isStable(InsertionSort(L));
+	//isStable(InsertionSort(L));
 	printf("\nBinaryInsertionSort:");
 	printList(BinaryInsertionSort(L));
-	isStable(BinaryInsertionSort(L));
+	//isStable(BinaryInsertionSort(L));
 	printf("\nTwoWayInsertionSort:");
 	printList(TwoWayInsertionSort(L));
-	isStable(TwoWayInsertionSort(L));
+	//isStable(TwoWayInsertionSort(L));
 	printf("\nShellSort:          ");
 	printList(ShellSort(L));
-	isStable(ShellSort(L));
+	//isStable(ShellSort(L));
 	printf("\nBubbleSort:         ");
 	printList(BubbleSort(L));
-	isStable(BubbleSort(L));
+	//isStable(BubbleSort(L));
 	printf("\nQuickSort:          ");
 	printList(QuickSort(L));
-	isStable(QuickSort(L));
+	//isStable(QuickSort(L));
 	printf("\nSelectionSort:      ");
 	printList(SelectionSort(L));
-	isStable(SelectionSort(L));
+	//isStable(SelectionSort(L));
 	printf("\nHeapSort:           ");
 	printList(HeapSort(L));
-	isStable(HeapSort(L));
+	//isStable(HeapSort(L));
 	printf("\nMergeSort:          ");
 	printList(MergeSort(L));
-	isStable(MergeSort(L));
+	//isStable(MergeSort(L));
 }
 void method2() {
 	std::cout << "请输入表长(大于100，小于1000)：";
